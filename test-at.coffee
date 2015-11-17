@@ -21,6 +21,7 @@ describe 'lazy-flow-at', ->
 
 
   it 'should process flow.at without root', ->
+    window.x = undefined
     path1 = flow.at('x.y')
     expect(path1()).to.equal undefined
     path1(1)
