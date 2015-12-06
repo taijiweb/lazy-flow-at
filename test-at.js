@@ -2,7 +2,7 @@ var expect, flow, idescribe, iit, ndescribe, nit, _ref;
 
 _ref = require('bdd-test-helper'), expect = _ref.expect, iit = _ref.iit, idescribe = _ref.idescribe, nit = _ref.nit, ndescribe = _ref.ndescribe;
 
-flow = require('./index').flow;
+flow = require('./index');
 
 describe('lazy-flow-at', function() {
   it('should process flow.at', function() {
@@ -25,6 +25,7 @@ describe('lazy-flow-at', function() {
   });
   return it('should process flow.at without root', function() {
     var path1, root;
+    window.x = void 0;
     path1 = flow.at('x.y');
     expect(path1()).to.equal(void 0);
     path1(1);

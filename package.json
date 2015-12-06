@@ -12,7 +12,7 @@
       "url": "https://raw.github.com/taijiweb/lazy-flow-at/master/LICENSE"
     }
   ],
-  "main": "lib/index.js",
+  "main": "index.js",
   "homepage": "https://github.com/taijiweb/lazy-flow-at",
   "bugs": "https://github.com/taijiweb/lazy-flow-at/issues",
   "repository": {
