@@ -1,6 +1,6 @@
-{newLine, funcString} = require 'dc-util'
+{newLine, funcString} = require('dc-util')
 
-{bind, duplex, react} = flow = require "lazy-flow"
+{bind, duplex, react} = flow = require("lazy-flow")
 
 module.exports = flow
 
@@ -79,3 +79,30 @@ invalidateBindPath = (root, path, atFunc, method) ->
 
 flow.at = atMethod(bind)
 flow.at2 = atMethod(duplex)
+
+# return a group of flow at
+# pathPattern: 'x.y, '[x, y].z', 'x.[y,z]', ...
+# for flow.paths(obj, 'x.[y,z]'), return [flow.at(obj, ['x', 'y']), flow.at(obj, ['x', 'z'])]
+flow.paths = (obj, pathPattern) ->
+  itemList = pathPattern.split(/\s*\.\s*/)
+  paths = []
+  for item in itemList
+    if item[0]=='['
+      length = item.length
+      if item[item.length-1]!=']'
+        throw new Error("wrong format of pathPattern for flow.paths, expect string like 'x.y, '[x, y].z', 'x.[y,z]' ...")
+      item = item.slice(1, length-1)
+      paths.push(item.split(/\s*\.\s*|\s+/))
+    else paths.push([item])
+  pathList = paths[0]
+  for item in paths.slice(1)
+    pathList2 = []
+    for head in pathList
+      for x in path
+        pathList2.push(head.concat([x]))
+    pathList = pathList2
+  flowPaths = []
+  for item in pathList
+    flowPaths.push(at(obj, item))
+  flowPaths
+

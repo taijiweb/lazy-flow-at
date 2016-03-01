@@ -1,6 +1,6 @@
-{expect, iit, idescribe, nit, ndescribe} = require('bdd-test-helper')
+{expect, iit, idescribe, nit, ndescribe, ddescribe} = require('bdd-test-helper')
 
-flow = require './index'
+flow = require('./index')
 
 describe 'lazy-flow-at', ->
 

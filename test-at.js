@@ -1,6 +1,6 @@
-var expect, flow, idescribe, iit, ndescribe, nit, _ref;
+var ddescribe, expect, flow, idescribe, iit, ndescribe, nit, _ref;
 
-_ref = require('bdd-test-helper'), expect = _ref.expect, iit = _ref.iit, idescribe = _ref.idescribe, nit = _ref.nit, ndescribe = _ref.ndescribe;
+_ref = require('bdd-test-helper'), expect = _ref.expect, iit = _ref.iit, idescribe = _ref.idescribe, nit = _ref.nit, ndescribe = _ref.ndescribe, ddescribe = _ref.ddescribe;
 
 flow = require('./index');
 
