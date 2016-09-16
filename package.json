@@ -1,6 +1,6 @@
 {
   "name": "lazy-flow-at",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "lazy reactive function flow.at and flow.at2",
   "keywords": [
     "reactive"
